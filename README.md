@@ -15,7 +15,7 @@ Built using:
 # 🚀 Quick Start (Run the Project)
 
 ## Step 1 — Clone repo
-git clone <your-repo-link>
+git clone https://github.com/Gaya19/illegal-drug-detection-in-humans-using-dl.git
 
 ## Step 2 — Go inside project folder (IMPORTANT)
 cd DrugDetectionProject
