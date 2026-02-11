@@ -90,6 +90,18 @@ dataset/
    val/
 
 ---
+## Dataset Setup
+
+⚠️ The dataset is not uploaded to GitHub because it is large.
+
+Download the dataset from Google Drive:
+👉 [Paste your Drive link here]
+
+### Steps
+
+1. Download `dataset.zip`
+2. Extract the zip file
+3. Move the extracted `dataset` folder into the project root directory
 
 # 📁 Project Structure
 
