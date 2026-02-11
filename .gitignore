@@ -1,0 +1,7 @@
+venv/
+dataset/
+augmented_dataset/
+__pycache__/
+*.pyc
+*.h5
+static/uploads/
