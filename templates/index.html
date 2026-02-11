@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Illicit Drug Detection</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    /* Make body fill the screen */
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Main content grows, pushes footer down */
+    .content {
+      flex: 1;
+    }
+
+    /* Footer always at bottom */
+    footer {
+      background: #1a3eb1;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+    }
+  </style>
+</head>
+
+{% if page != 'result' %}
+<body style="background: url('{{ url_for('static', filename='images/mybg.jpg') }}') no-repeat center center fixed; background-size: cover;">
+{% else %}
+<body style="background: #fff;">
+{% endif %}
+
+  <nav class="navbar">
+    <div class="logo">Drug Detection System</div>
+    <ul class="nav-links">
+      <li><a href="/" class="{% if page == 'home' %}active{% endif %}">Home</a></li>
+      <li><a href="/upload" class="{% if page == 'upload' %}active{% endif %}">Upload</a></li>
+      <li><a href="/about" class="{% if page == 'about' %}active{% endif %}">About</a></li>
+       <li><a href="/login" class="{% if page == 'login' %}active{% endif %}">Login</a></li>
+  <li><a href="/signup" class="{% if page == 'signup' %}active{% endif %}">Sign Up</a></li>
+    </ul>
+  </nav>
+
+  <!-- Content wrapper -->
+  <div class="content">
+    <section class="hero" style="color: black; max-width: 800px; margin: 50px auto; padding: 40px; text-align: center; background: rgba(255,255,255,0.8); border-radius: 8px;">
+      <h1>Illicit Drug Identification using Deep Learning</h1>
+      <p>This system uses cutting-edge deep learning models to identify illicit drug influence from eye images.</p>
+      <a href="/upload" class="btn" style="background: #1a3eb1; color: #fff; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: bold;">Start Detection</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 Drug Detection Project | Powered by Deep Learning</p>
+  </footer>
+
+</body>
+</html>

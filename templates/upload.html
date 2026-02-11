@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Eye Image</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: url("{{ url_for('static', filename='images/mybg.jpg') }}") no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main { flex: 1; }
+    .upload-section {
+      text-align: center;
+      padding: 80px 20px;
+      background: rgba(255, 255, 255, 0.85);
+      margin: 80px auto;
+      width: 60%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .btn {
+      background-color: #1a4fc3;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .btn:hover { background-color: #153c99; }
+    footer {
+      background: #1a4fc3;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: auto;
+    }
+    video { border: 2px solid #1a4fc3; border-radius: 10px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="logo">Drug Detection System</div>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/upload" class="active">Upload</a></li>
+    <li><a href="/about">About</a></li>
+  </ul>
+</nav>
+
+<main>
+  <section class="upload-section">
+    <h2>Upload Eye Image for Detection</h2>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="flash">
+          {% for m in messages %}<p>{{ m }}</p>{% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <!-- File Upload Form -->
+    <form id="file-form" action="/predict" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="image/*" required>
+      <br><br>
+      <button type="submit" class="btn">Predict</button>
+    </form>
+
+    <br><hr><br>
+
+    <!-- Camera Capture -->
+    <h3>Or capture from camera</h3>
+    <video id="video" width="320" height="240" autoplay></video>
+    <br>
+    <button id="snap" class="btn">Capture & Predict</button>
+    <canvas id="canvas" width="320" height="240" style="display:none;"></canvas>
+
+    <script>
+      const video = document.getElementById('video');
+      const canvas = document.getElementById('canvas');
+      const snapBtn = document.getElementById('snap');
+
+      // Access webcam
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => { video.srcObject = stream; })
+        .catch(err => { console.error("Camera access denied:", err); });
+
+      snapBtn.addEventListener('click', () => {
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        canvas.toBlob(blob => {
+          const formData = new FormData();
+          formData.append('file', blob, 'capture.png');
+
+          fetch('/predict', { method: 'POST', body: formData })
+            .then(res => res.text())
+            .then(html => { document.open(); document.write(html); document.close(); })
+            .catch(err => alert("Prediction failed: " + err));
+        }, 'image/png');
+      });
+    </script>
+  </section>
+</main>
+
+<footer>
+  <p>© 2025 Drug Detection Project | Powered by Deep Learning</p>
+</footer>
+
+</body>
+</html>

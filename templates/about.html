@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Drug Detection System</div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/upload">Upload</a></li>
+      <li><a href="/about" class="active">About</a></li>
+    </ul>
+  </nav>
+
+  <section class="about">
+    <h2>About the Project</h2>
+    <p>
+      This project leverages deep learning (Xception CNN model) to detect
+      drug influence in youth through ocular image analysis. The model is trained on
+      eye datasets with both normal and drug-affected samples.
+    </p>
+  </section>
+
+  <footer>
+    <p>© 2025 Drug Detection Project | Powered by Deep Learning</p>
+  </footer>
+
+</body>
+</html>
