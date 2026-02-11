@@ -1,59 +1,114 @@
-# Illicit Drug Detection (Xception)
+# 👁️ Drug Detection using Ocular Images (Xception CNN)
 
-A Flask web app to detect illicit drug influence from **eye images** using the **Xception** CNN model.
+This project detects whether an eye image is:
+- Drug affected
+- Infected
+- Normal
 
-## Project Structure
-```
+Built using:
+- Python
+- TensorFlow / Keras (Xception)
+- Flask Web App
+
+---
+
+# 🚀 Quick Start (Run the Project)
+
+## Step 1 — Clone repo
+git clone <your-repo-link>
+
+## Step 2 — Go inside project folder (IMPORTANT)
+cd DrugDetectionProject
+
+Make sure you can see:
+app.py  
+requirements.txt  
+templates/  
+static/
+
+---
+
+## Step 3 — Create virtual environment
+python -m venv venv
+
+## Step 4 — Activate
+
+Windows:
+venv\Scripts\activate
+
+---
+
+## Step 5 — Install all dependencies (automatic)
+pip install -r requirements.txt
+
+NOTE:
+Do NOT manually install tensorflow, numpy, keras.
+requirements.txt handles everything automatically.
+
+---
+
+## Step 6 — Run app
+python app.py
+
+Open browser:
+http://127.0.0.1:5000
+
+---
+
+# 🤖 Model
+Pre-trained model included:
+xception_model.h5
+
+So training is NOT required for testing.
+
+---
+
+# 🏋️ Training (optional)
+
+If you want to train again:
+
+cd training  
+python train_xception.py
+
+---
+
+# 📂 Dataset
+
+Dataset was created by the author.
+
+Due to large size, it is NOT uploaded to GitHub.
+
+Download dataset here:
+https://drive.google.com/drive/folders/14bkG6Xq_Y1AE88PTzq4MJMLiVLg8dELR?usp=sharing
+<PASTE YOUR GOOGLE DRIVE LINK>
+
+After download, extract as:
+
+dataset/
+   train/
+   test/
+   val/
+
+---
+
+# 📁 Project Structure
+
 DrugDetectionProject/
-├── app.py
-├── requirements.txt
-├── README.md
-├── dataset/
-│   ├── train/
-│   │   ├── Normal/
-│   │   └── Drug/
-│   └── test/
-│       ├── Normal/
-│       └── Drug/
-├── models/
-│   └── xception_model.h5            # Put your trained model here
-├── static/
-│   ├── css/style.css
-│   └── uploads/
-├── templates/
-│   ├── index.html
-│   ├── upload.html
-│   ├── about.html
-│   └── result.html
-└── training/
-    ├── train_xception.py
-    └── utils.py
-```
+│
+├── app.py  
+├── train_xception.py  
+├── utils.py  
+├── augmentation.py  
+├── requirements.txt  
+├── README.md  
+├── .gitignore  
+├── xception_model.h5  
+├── templates/  
+├── static/  
 
-## Quick Start
-1. Create a venv and install requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Place your trained model at `models/xception_model.h5` (see `training/train_xception.py` to train).
-3. Run the app:
-   ```bash
-   python app.py
-   ```
-4. Open `http://127.0.0.1:5000` in your browser.
+---
 
-## Training
-- Put your images into `dataset/train/Normal`, `dataset/train/Drug`.
-- (Optional) Move a portion to `dataset/test/...` for held-out testing.
-- Run:
-  ```bash
-  python training/train_xception.py
-  ```
-- The best model will be saved to `models/xception_model.h5`.
 
-## Notes
-- Input size: **299x299** (Xception), images scaled to **[0,1]**.
-- You can change class labels in `app.py` (`labels = ["Normal", "Drug Affected"]`).
 
-## Credits
-- UI built to match your provided screenshot (navbar, hero, footer).
+# 👩‍💻 Author
+Gayathri
