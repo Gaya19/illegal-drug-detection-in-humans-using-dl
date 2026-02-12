@@ -79,8 +79,7 @@ Dataset was created by the author.
 Due to large size, it is NOT uploaded to GitHub.
 
 Download dataset here:
-https://drive.google.com/drive/folders/14bkG6Xq_Y1AE88PTzq4MJMLiVLg8dELR?usp=sharing
-<PASTE YOUR GOOGLE DRIVE LINK>
+https://drive.google.com/drive/folders/14bkG6Xq_Y1AE88PTzq4MJMLiVLg8dELR?usp=sharin
 
 After download, extract as:
 
@@ -95,13 +94,43 @@ dataset/
 ⚠️ The dataset is not uploaded to GitHub because it is large.
 
 Download the dataset from Google Drive:
-👉 [Paste your Drive link here]
+👉 https://drive.google.com/drive/folders/14bkG6Xq_Y1AE88PTzq4MJMLiVLg8dELR?usp=sharin
 
 ### Steps
 
 1. Download `dataset.zip`
 2. Extract the zip file
 3. Move the extracted `dataset` folder into the project root directory
+
+
+# 📂  Augmented Dataset
+
+An augmented dataset is provided to improve model training.
+
+Download augmented dataset here:
+Augmented Dataset
+ https://drive.google.com/drive/folders/1-9pVe4R814rqXDE8ZvoHzjCC4sQZStjS?usp=sharing
+
+Steps
+
+Download augmented_dataset.zip
+
+Extract the zip file
+
+Move the extracted folder into the project root directory:
+
+## 💾 Download Pre-trained Models (Single Link)
+
+Both pre-trained models are available in a single folder:
+
+- `xception_model.h5`
+- `best_xception_model.h5`
+
+**Download here:**  
+https://drive.google.com/drive/folders/1UkvVA1ho0MWnvRJXTPLWBtq4Bzrg-6OL?usp=sharing 
+
+After downloading, place the folder in the project root:
+
 
 # 📁 Project Structure
 
@@ -114,9 +143,14 @@ DrugDetectionProject/
 ├── requirements.txt  
 ├── README.md  
 ├── .gitignore  
-├── xception_model.h5  
+├── models/
+│    ├── xception_model.h5
+│    └── best_xception_model.h5
 ├── templates/  
 ├── static/  
+├── dataset/             # original dataset
+└── augmented_dataset/   # optional, augmented images
+ 
 
 ---
 
