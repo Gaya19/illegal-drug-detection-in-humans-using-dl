@@ -1,7 +1,16 @@
+# Python virtual environment
 venv/
+
+# Datasets
 dataset/
 augmented_dataset/
+
+# Python cache files
 __pycache__/
 *.pyc
+
+# Model files
 *.h5
+
+# Uploaded files (like user uploads in Flask apps)
 static/uploads/
