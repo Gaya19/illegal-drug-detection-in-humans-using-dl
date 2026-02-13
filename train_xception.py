@@ -106,7 +106,7 @@ callbacks = [
 # ==============================
 history = model.fit(
     train_generator,
-    epochs=6,
+    epochs=20,
     validation_data=val_generator,
     callbacks=callbacks,
    
@@ -123,7 +123,7 @@ model.compile(optimizer=tf.keras.optimizers.Adam(1e-5),
 
 history_fine = model.fit(
     train_generator,
-    epochs=6,
+    epochs=20,
     validation_data=val_generator,
     callbacks=callbacks,
     
