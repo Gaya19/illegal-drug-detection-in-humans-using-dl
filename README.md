@@ -44,7 +44,8 @@ pip install -r requirements.txt
 NOTE:
 Do NOT manually install tensorflow, numpy, keras.
 requirements.txt handles everything automatically.
-
+*pip install typing-extensions==4.5.0
+*pip install typing-extensions==4.8.0
 ---
 
 ## Step 6 — Run app
