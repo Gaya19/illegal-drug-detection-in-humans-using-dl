@@ -6,6 +6,7 @@ import json
 import numpy as np
 from keras.models import load_model
 from tensorflow.keras.preprocessing import image
+from tensorflow.keras.layers import SeparableConv2D
 import cv2   # Camera support
 USERS_FILE = "users.json" #news
 
@@ -50,7 +51,8 @@ input_size = (299, 299)
 
 try:
     if os.path.exists(MODEL_PATH):
-        model = load_model(MODEL_PATH)
+        model = load_model(MODEL_PATH,
+    custom_objects={'SeparableConv2D': SeparableConv2D})
 
         if hasattr(model, "input_shape") and len(model.input_shape) == 4:
             _, h, w, c = model.input_shape
@@ -278,4 +280,5 @@ def camera_predict():
 # Run App
 # ===============================
 if __name__ == "__main__":
+
     app.run(debug=True)
