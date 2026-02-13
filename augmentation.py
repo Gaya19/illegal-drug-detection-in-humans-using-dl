@@ -5,8 +5,8 @@ import numpy as np
 # ==============================
 # Paths
 # ==============================
-input_dir = r"C:\Users\tadip\Downloads\DrugDetectionProject_Xception\DrugDetectionProject\dataset\train"
-output_dir = r"C:\Users\tadip\Downloads\DrugDetectionProject_Xception\DrugDetectionProject\augmented_dataset\train"
+input_dir = r"C:\drug-detection"
+output_dir = r"C:\drug-detection"
 
 # How many augmented images per class
 AUGMENT_SIZE = 1000  
@@ -68,3 +68,4 @@ for cls in os.listdir(input_dir):
 
 print("\n🎉 Augmentation complete! Check the folder:")
 print(output_dir)
+
